@@ -1,0 +1,26 @@
+@import "../../assets/styles/vars";
+.wrapper{
+  width: 100%;
+  padding: 1em 0;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.btn{
+  background: $pink;
+  padding: .5em 1em;
+  border-radius: .5em;
+  color: $white;
+  text-decoration: none;
+  &:hover{
+    outline: $pink solid 1px;
+    background: transparent;
+  }
+}

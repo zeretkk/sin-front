@@ -1,0 +1,66 @@
+@import "../../assets/styles/vars";
+.wrapper{
+  background: url('../../assets/images/bg1.png') center no-repeat fixed;
+  background-size: cover;
+  position: absolute;
+  top:-150vh;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: show forwards 0.7s;
+}
+.form{
+  padding: 1em;
+  border-radius: .5em;
+  color: #fff;
+  width: 300px;
+  background-color: $bg;
+
+}
+.group{
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .input,
+  .input:-webkit-autofill,
+  .input:-webkit-autofill:hover,
+  .input:-webkit-autofill:focus,
+  .input:-webkit-autofill:active{
+    display: block;
+    color: $bg;
+    outline: none;
+  }
+}
+.heading{
+  text-align: center;
+  font-size: 1.7em;
+}
+.label{
+  margin-bottom: .5em;
+  position: relative;
+}
+
+.button{
+  background-color: #fff;
+}
+.close{
+  color: $white;
+  text-decoration: none;
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  font-size: 1.5em;
+}
+@keyframes show {
+  from{
+    top:-150vh;
+  }
+  to{
+    top: 0;
+  }
+
+}

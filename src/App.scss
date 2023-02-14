@@ -1,0 +1,30 @@
+@import "assets/styles/vars";
+body{
+  color: $white;
+  background: $bg url('./assets/images/bg2.png') no-repeat fixed center;
+  background-size: cover;
+}
+button{
+  border-radius: .5em;
+  border: 1px solid transparent;
+  padding: .5em 1em;
+  height: 3em;
+  &:hover{
+    background: transparent;
+    border-color: $pink;
+    color: $white;
+  }
+}
+label{
+  display: block;
+}
+input{
+  border-radius: .5em;
+  border: 1px solid #737373;
+  padding: .5em 1em;
+  height: 2em;
+}
+.container{
+  max-width: 1440px;
+  margin: 0 auto;
+}
