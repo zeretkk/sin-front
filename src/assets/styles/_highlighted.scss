@@ -1,0 +1,27 @@
+.highlighted{
+  max-width: 510px;
+  border-radius: 20px;
+  background: $bg-secondary;
+}
+.highlighted__img{
+  width: 100%;
+  >img{
+    width: 100%;
+    height: auto;
+  }
+}
+.highlighted__description{
+  padding: 20px;
+}
+.highlighted__author{
+  padding-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+.highlighted__avatar{
+  width: 24px;
+  height: 24px;
+}

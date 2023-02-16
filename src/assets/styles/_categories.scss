@@ -1,0 +1,36 @@
+.categories__list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.category-card{
+  background: $bg-secondary;
+  border-radius: 20px;
+}
+.category-card__img{
+  position: relative;
+
+}
+
+.category-card__overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  background-color: rgba(255,255,255, 0.1);
+  backdrop-filter: blur(7.5px);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  >img{
+    position: absolute;
+    bottom:50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+  }
+}
+.category-card__description{
+  padding: 20px 30px;
+}
