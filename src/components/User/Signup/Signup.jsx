@@ -17,7 +17,7 @@ function Signup() {
         e.preventDefault()
         if(validateForm()){
             setError(false)
-            axios.post('http://localhost:3001/user', {pass: password, username, name, email})
+            axios.post('http://localhost:3001/user', {password, username, name, email})
                 .then(() =>{
                     navigate('/login')
                 })
