@@ -1,0 +1,20 @@
+.footer{
+  background: $bg-secondary;
+  padding: 40px 0;
+}
+.footer__wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer__column{
+  display: flex;
+  flex-direction: column;
+  gap: 30px
+}
+.footer__text{
+  color: $caption;
+}
+.footer__social{
+  padding-top: 15px;
+}

@@ -1,14 +1,17 @@
-import Header from "../Header/Header";
+import Header from "./Header";
 import {Outlet} from "react-router-dom";
-import Hero from "../Hero/Hero";
+import Footer from "./Footer";
 
 function MainLayout() {
     return (
         <>
             <Header/>
-            <Hero/>
-            <Outlet/>
+            <div className='container'>
+                <Outlet/>
+            </div>
+            <Footer/>
         </>
+
     )
 }
 

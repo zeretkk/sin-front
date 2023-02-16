@@ -12,6 +12,9 @@ export const userSlice = createSlice({
     initialState,
     reducers:{
         update:(state, action)=>{
+            if(action?.payload?.token){
+                localStorage.setItem('token', action.payload.token)
+            }
             state.value.data = action.payload
         }
     }
