@@ -1,6 +1,6 @@
-@import "../../assets/styles/vars";
+@import "../../../assets/styles/vars";
 .wrapper{
-  background: url('../../assets/images/bg1.png') center no-repeat fixed;
+  background: url('../../../assets/images/bg1.png') center no-repeat fixed;
   background-size: cover;
   position: absolute;
   top:-150vh;
@@ -33,6 +33,11 @@
     display: block;
     color: $bg;
     outline: none;
+  }
+  >a{
+    display: block;
+    max-width: fit-content;
+    margin: .5em auto 0 auto;
   }
 }
 .heading{

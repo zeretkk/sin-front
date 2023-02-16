@@ -28,6 +28,7 @@ function Login() {
                 </div>
                 <div className={c.group}>
                     <button className={c.button}>LogIn</button>
+                    <Link to={'/signup'}>SignUp</Link>
                 </div>
             </form>
         </div>
