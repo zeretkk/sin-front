@@ -113,7 +113,7 @@ function Signup() {
                 <div className={c.group}>
                     <button className={c.button}>SignUp</button>
                 </div>
-                <p>Already have account? <Link to={'/login'}>Sign in</Link></p>
+                <p>Already have account? <Link to={'/login'} className={c.link}>Sign in</Link></p>
 
             </form>
         </div>
