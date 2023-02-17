@@ -18,8 +18,13 @@ export const userSlice = createSlice({
             }
             state.value.data = action.payload
             state.value.loaded = true
+        },
+        logout:(state)=>{
+            state.value.data = null
+            state.value.loaded = true
+            localStorage.removeItem('token')
         }
     }
 })
-export const {update} = userSlice.actions
+export const {update, logout} = userSlice.actions
 export default userSlice.reducer

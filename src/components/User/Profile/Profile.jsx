@@ -1,12 +1,21 @@
 import c from './profile.module.scss'
 import cover from '../../../assets/images/cover.png'
 import avatar from '../../../assets/images/Avatars/Animakid.png'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Button from "../../utility/Button";
 import  copyIcon from '../../../assets/icons/Copy.svg'
 import  plusIcon from '../../../assets/icons/Plus.svg'
+import {logout} from "../../../slices/userSlice";
+import {useNavigate} from "react-router-dom";
 export default function Profile() {
     const user = useSelector(state => state.user.value.data)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleLogout=()=>{
+        dispatch(logout())
+        navigate('/')
+    }
+
     return (
         <div className={c.wrapper}>
             <div className={c.cover}>
@@ -40,6 +49,7 @@ export default function Profile() {
                             return <a href={link} rel={'noreferrer'} target={'_blank'} key={'userLink-'+i}>иконка</a>
                         })}
                     </div>
+                    <p className={c.logout} onClick={handleLogout}>Logout</p>
                 </div>
                 <div className={c.buttons}>
                     <Button size={'secondary'} filled icon={copyIcon}>{user._id.slice(0, 8)}...</Button>

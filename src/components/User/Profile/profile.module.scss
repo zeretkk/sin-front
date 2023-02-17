@@ -2,6 +2,8 @@
 .wrapper{
   max-width: 1440px;
   margin: 0 auto;
+  padding-bottom: 20px;
+
 }
 .cover{
   width: 100%;
@@ -50,4 +52,9 @@
 .buttons{
   display: flex;
   gap: 20px
+}
+.logout{
+  color: $danger;
+  font-weight: bold;
+  cursor: pointer;
 }
