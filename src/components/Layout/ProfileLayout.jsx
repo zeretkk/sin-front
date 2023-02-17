@@ -9,7 +9,7 @@ export default function ProfileLayout() {
     const navigate = useNavigate()
     const user = useSelector(state => state.user.value.data)
     useEffect(()=>{
-        navigate('/')
+        if (!user) navigate('/')
     }, [user])
     if(!user) return (
         <>

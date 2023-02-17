@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState(false)
+    const [error, setError] = useState('')
     const [validity, setValidity] = useState({})
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -23,8 +23,16 @@ function Login() {
                     navigate('/profile')
                 })
                 .catch(err=>{
-                    console.log(err)
-                    setError(true)
+                    if(err.code){
+                        console.log(err)
+                        console.log(err.code)
+                        switch (err.code){
+                            case "ERR_BAD_REQUEST":
+                                setError('Incorrect username or password')
+                                return
+                        }
+                    }
+                    setError('Something went wrong')
                 })
         }
 
@@ -56,7 +64,7 @@ function Login() {
                 <div className={c.group}>
                     <h2 className={c.heading}>Join Account</h2>
                     <p className={c.text}>Welcome back! enter your details and continue creating, collecting and selling NFTs.</p>
-                    {error && <p className={c.errorLabel}>Something went wrong try again later</p>}
+                    {error && <p className={c.errorLabel}>{error}</p>}
 
                 </div>
                 <div className={c.group}>
