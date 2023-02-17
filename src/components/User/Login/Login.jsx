@@ -76,7 +76,7 @@ function Login() {
                     />
                 </div>
                 <div className={c.group}>
-                    <button className={c.button}>SignUp</button>
+                    <button className={c.button}>SignIn</button>
                 </div>
             </form>
         </div>
