@@ -1,19 +1,20 @@
-.highlighted{
+@import "../../../assets/styles/vars";
+.wrapper{
   max-width: 510px;
   border-radius: 20px;
   background: $bg-secondary;
 }
-.highlighted__img{
+.img{
   width: 100%;
   >img{
     width: 100%;
     height: auto;
   }
 }
-.highlighted__description{
+.description{
   padding: 20px;
 }
-.highlighted__author{
+.author{
   padding-top: 12px;
   display: flex;
   flex-direction: row;
@@ -21,7 +22,8 @@
   align-items: center;
   gap: 12px;
 }
-.highlighted__avatar{
+.avatar{
   width: 24px;
   height: 24px;
+  object-fit: cover;
 }

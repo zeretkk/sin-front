@@ -1,0 +1,36 @@
+@import "../../../assets/styles/vars";
+.wrapper{
+  background: $bg-secondary;
+  padding: 40px 0;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  gap: 30px
+}
+.text{
+  color: $caption;
+}
+.social{
+  padding-top: 15px;
+}
+.form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  >input{
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    flex: 1 0 auto;
+    padding: 0 1.5em
+  }
+  >button{
+    margin-left: -3rem;
+  }
+}

@@ -11,9 +11,12 @@ function App() {
     const dispatch = useDispatch()
     useEffect(()=>{
         const token = localStorage.getItem('token')
-        if(token) axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        if(token) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        }else{
+            axios.defaults.headers.common['Authorization'] = ''
+        }
         if(localStorage.getItem('token') && !userInfo.loaded){
-
             axios.post('http://localhost:3001/user/login', {})
                 .then(resp => dispatch(update(resp.data)))
                 .catch(()=> localStorage.removeItem('token'))

@@ -1,4 +1,11 @@
-.categories__list{
+@import "../../assets/styles/vars";
+.wrapper{
+  padding-bottom: 40px;
+}
+.heading{
+  padding-bottom: 40px;
+}
+.list{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,16 +13,15 @@
   gap: 30px;
   margin-bottom: 40px;
 }
-.category-card{
+.card{
   background: $bg-secondary;
   border-radius: 20px;
 }
-.category-card__img{
+.cardImg{
   position: relative;
 
 }
-
-.category-card__overlay{
+.cardOverlay{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -31,6 +37,9 @@
     transform: translate(50%, 50%);
   }
 }
-.category-card__description{
+.cardDescription{
   padding: 20px 30px;
+}
+.cardImg{
+  position: relative;
 }

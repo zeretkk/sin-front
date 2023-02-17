@@ -1,3 +1,4 @@
+import c from './categories.module.scss'
 import Art from '../../assets/images/Categories/Art.png'
 import Collectibles from '../../assets/images/Categories/Collectibles.png'
 import Music from '../../assets/images/Categories/Music.png'
@@ -17,11 +18,10 @@ import VideoCamera from '../../assets/icons/category/VideoCamera.svg'
 import Planet from '../../assets/icons/category/Planet.svg'
 import CategoryCard from "./CategoryCard";
 export default function Categories() {
-    console.log(Art)
     return (
-        <section className="categories">
-            <h3>Browse Categories</h3>
-            <div className="categories__list">
+        <section className={c.wrapper}>
+            <h3 className={c.heading}>Browse Categories</h3>
+            <div className={c.list}>
                 <CategoryCard title={'Art'} background={Art} icon={PaintBrush}/>
                 <CategoryCard title={'Collectibles'} background={Collectibles} icon={Swatches}/>
                 <CategoryCard title={'Music'} background={Music} icon={MusicNotes}/>

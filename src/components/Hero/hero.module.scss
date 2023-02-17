@@ -1,25 +1,30 @@
-.hero{
+.wrapper{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   gap: 30px;
+  padding-bottom: 80px;
 
 }
-.hero__text{
+.text{
   flex: 0 1 510px;
-  padding-right: 5%;
 }
-.hero__description{
+.heading{
+  padding-right: 4%;
+}
+.description{
   margin: 20px 0 40px;
+  padding-right: 25%;
 }
 
-.hero__statistic{
+
+.statistic{
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
 }
-.hero__item{
+.item{
   flex: 0 1 150px;
 }
 .hero__count{
