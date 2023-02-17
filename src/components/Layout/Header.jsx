@@ -10,8 +10,7 @@ function Header() {
             <nav className="header__menu">
                 <NavLink className={'header__link'} to={'/'}>Marketplace</NavLink>
                 <NavLink className={'header__link'} to={'/'}>Rankings</NavLink>
-                <NavLink className={'header__link'} to={'/'}>Connect a Wallet</NavLink>
-                <NavLink className={'header__link'} to={'/a'}>
+                <NavLink className={'header__link'} to={'/signup'}>
                     <Button size={'secondary'} filled>Sign Up</Button>
                 </NavLink>
             </nav>

@@ -12,7 +12,7 @@ export default function Hero() {
                 <p className="hero__description">
                     NFT marketplace UI created with Anima for Figma. Collect, buy and sell art from more than 20k NFT artists.
                 </p>
-                <NavLink to={'/signUp'}><Button filled size={'secondary'}>Get Started</Button></NavLink>
+                <NavLink to={'/signup'}><Button filled size={'secondary'}>Get Started</Button></NavLink>
                 <div className="hero__statistic">
                     <div className="hero__item">
                         <h4 className="hero__count">240k+</h4>

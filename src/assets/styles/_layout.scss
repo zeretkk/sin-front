@@ -19,6 +19,7 @@ h5{font-size: 22px; font-weight: 600}
   margin: 0 auto;
 }
 .btn{
+  padding: 0 30px;
   height: 46px;
   border: 2px solid $action;
   color: $text;
@@ -29,7 +30,6 @@ h5{font-size: 22px; font-weight: 600}
   justify-content: center;
   align-items: center;
   gap: 12px;
-  padding: 30px;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
@@ -37,9 +37,13 @@ h5{font-size: 22px; font-weight: 600}
 .btn-primary{
   height: 72px;
   font-size: 22px;
+  padding: 30px;
+
 }
 .btn-secondary{
   height: 60px;
+  padding: 30px;
+
 }
 .btn-filled{
   background: $action;
