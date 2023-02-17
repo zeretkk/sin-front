@@ -14,7 +14,7 @@ function App() {
         if(token) {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         }else{
-            axios.defaults.headers.common['Authorization'] = ''
+            delete axios.defaults.headers.common['Authorization']
         }
         if(localStorage.getItem('token') && !userInfo.loaded){
             axios.post('http://localhost:3001/user/login', {})
