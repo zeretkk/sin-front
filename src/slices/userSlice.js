@@ -3,8 +3,9 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     value: {
-        data: {},
-        error:false
+        data: null,
+        error:false,
+        loaded:false,
     }
 }
 export const userSlice = createSlice({
@@ -16,6 +17,7 @@ export const userSlice = createSlice({
                 localStorage.setItem('token', action.payload.token)
             }
             state.value.data = action.payload
+            state.value.loaded = true
         }
     }
 })

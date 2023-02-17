@@ -1,7 +1,9 @@
-import c from "../Login/login.module.scss";
+import c from "../userform.module.scss";
 import {Link, useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
+import image from '../../../assets/images/login.png'
+import {useSelector} from "react-redux";
 
 function Signup() {
     const [username, setUsername] = useState('')
@@ -12,6 +14,7 @@ function Signup() {
     const [validity, setValidity] = useState({})
     const [error, setError] = useState(false)
     const navigate = useNavigate()
+    const user = useSelector(state => state.user.value.data)
 
     const submitForm = (e) => {
         e.preventDefault()
@@ -22,8 +25,8 @@ function Signup() {
                     navigate('/login')
                 })
                 .catch(err=>{
-                    console.log(err.response.data)
-                    switch (err.response.data.type){
+                    console.log(err)
+                    switch (err?.response?.data?.type){
                         case 'unique':
                             setValidity({...validity, username: 'Username is already taken'})
                             break
@@ -50,47 +53,68 @@ function Signup() {
         setValidity(errObj)
         return !Object.keys(errObj).length>0
     }
+    useEffect(
+        ()=>{
+            if(user){
+                navigate('/profile')
+            }
+        }, [user, navigate]
+    )
     return (
         <div className={c.wrapper}>
-            <Link className={c.close} to={'/'}>X</Link>
+            <div className={c.image}>
+                <img src={image} alt="login"/>
+            </div>
             <form action="/" noValidate className={c.form} onSubmit={submitForm}>
                 <div className={c.group}>
-                    <h2 className={c.heading}>SignUp</h2>
-                    {error ?? <p className={c.error}>Something went wrong</p>}
+                    <h2 className={c.heading}>Create Account</h2>
+                    <p className={c.text}>Welcome! enter your details and start creating, collecting and selling NFTs.</p>
+                    {error && <p className={c.errorLabel}>Something went wrong try again later</p>}
+
                 </div>
                 <div className={c.group}>
-                    <label htmlFor='name' className={c.label}>Name <span className={c.errorLabel}>{validity?.name}</span></label>
-                    <input type="text" id='name' name='name' placeholder='name' className={`${c.input} ${validity?.name?c.errorInput:''}`}
-                           value={name} onChange={(e)=>setName(e.target.value)}
+                    <label htmlFor='name' className={c.label}>{validity?.name}</label>
+                    <input type="text" id='name' name='name' placeholder='Name'
+                           className={`${c.input} ${validity?.name?c.errorInput:''}`}
+                           value={name}
+                           onChange={(e)=>setName(e.target.value)}
                     />
                 </div>
                 <div className={c.group}>
-                    <label htmlFor='username' className={c.label}>Username <span className={c.errorLabel}>{validity?.username}</span></label>
-                    <input type="text" id='username' name='username' placeholder='username' className={`${c.input} ${validity?.username?c.errorInput:''}`}
-                           value={username} onChange={(e)=>setUsername(e.target.value)}
+                    <label htmlFor='username' className={c.label}>{validity?.username}</label>
+                    <input type="text" id='username' name='username' placeholder='Username'
+                           className={`${c.input} ${validity?.username?c.errorInput:''}`}
+                           value={username}
+                           onChange={(e)=>setUsername(e.target.value)}
                     />
                 </div>
                 <div className={c.group}>
-                    <label htmlFor='password' className={c.label}>E-mail <span className={c.errorLabel}>{validity?.email}</span></label>
-                    <input type="email" id='email' name='email' placeholder='email' className={`${c.input} ${validity?.email?c.errorInput:''}`}
-                           value={email} onChange={(e)=>setEmail(e.target.value)}
+                    <label htmlFor='email' className={c.label}>{validity?.email}</label>
+                    <input type="email" id='email' name='email' placeholder='Email'
+                           className={`${c.input} ${validity?.email?c.errorInput:''}`}
+                           value={email}
+                           onChange={(e)=>setEmail(e.target.value)}
                     />
                 </div>
                 <div className={c.group}>
-                    <label htmlFor='password' className={c.label}>Password <span className={c.errorLabel}>{validity?.password}</span></label>
-                    <input type="password" id='password' name='password' placeholder='password' className={`${c.input} ${validity?.password?c.errorInput:''}`}
+                    <label htmlFor='password' className={c.label}>{validity?.password}</label>
+                    <input type="password" id='password' name='password' placeholder='Password' className={`${c.input} ${validity?.password?c.errorInput:''}`}
                            value={password} onChange={(e)=>setPassword(e.target.value)}
                     />
                 </div>
                 <div className={c.group}>
-                    <label htmlFor='repassword' className={c.label}>Submit Password <span className={c.errorLabel}>{validity?.submitPassword}</span></label>
-                    <input type="password" id='repassword' name='repassword' placeholder='submit password' className={`${c.input} ${validity?.submitPassword?c.errorInput:''}`}
-                           value={submitPassword} onChange={(e)=>setSubmitPassword(e.target.value)}
+                    <label htmlFor='repassword' className={c.label}>{validity?.submitPassword}</label>
+                    <input type="password" id='repassword' name='repassword' placeholder='Submit Password'
+                           className={`${c.input} ${validity?.submitPassword?c.errorInput:''}`}
+                           value={submitPassword}
+                           onChange={(e)=>setSubmitPassword(e.target.value)}
                     />
                 </div>
                 <div className={c.group}>
                     <button className={c.button}>SignUp</button>
                 </div>
+                <p>Already have account? <Link to={'/login'}>Sign in</Link></p>
+
             </form>
         </div>
     )
