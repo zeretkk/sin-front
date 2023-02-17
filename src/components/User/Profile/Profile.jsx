@@ -7,6 +7,7 @@ import  copyIcon from '../../../assets/icons/Copy.svg'
 import  plusIcon from '../../../assets/icons/Plus.svg'
 import {logout} from "../../../slices/userSlice";
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 export default function Profile() {
     const user = useSelector(state => state.user.value.data)
     const dispatch = useDispatch()
@@ -15,7 +16,6 @@ export default function Profile() {
         dispatch(logout())
         navigate('/')
     }
-
     return (
         <div className={c.wrapper}>
             <div className={c.cover}>
