@@ -1,5 +1,6 @@
 import launch from '../../assets/icons/RocketLaunch.svg'
-export default function Button({filled, size, children, className, icon}, props) {
+export default function Button({filled, size, children, className, icon, ...props}) {
+    console.log({filled, size, children, className, icon}, props)
     const classes = className ?? ''
     const sizeClass = size?'btn-'+size:''
     const iconPath = icon ?? launch

@@ -4,14 +4,22 @@ import Button from "../../utility/Button";
 import {useSelector} from "react-redux";
 import userIcon from '../../../assets/icons/User.svg'
 import c from './header.module.scss'
+import dropdown from '../../../assets/icons/List.svg'
+import eyeSlash from '../../../assets/icons/EyeSlash.svg'
+import {useState} from "react";
 function Header() {
+    const [isVisible, setVisible] = useState(false)
     const user = useSelector(state => state.user.value.data)
+    const handleDropdown=()=>{
+        setVisible(!isVisible)
+    }
     return (
         <header className={c.wrapper}>
             <div className={c.logo}>
                 <img src={logo} alt="NFT-Market"/>
             </div>
-            <nav className={c.menu}>
+            <button className={c.dropdownButton} onMouseDown={handleDropdown}><img src={dropdown} alt="Dropdown"/></button>
+            <nav className={`${c.menu} ${isVisible?c.menuVisible:''}`}>
                 <NavLink className={c.link} to={'/'}>Marketplace</NavLink>
                 <NavLink className={c.link} to={'/'}>Rankings</NavLink>
                 {user
@@ -22,6 +30,8 @@ function Header() {
                         <Button size={'secondary'} filled>Sign Up</Button>
                     </NavLink>
                 }
+                <Button className={c.dropdownButton} onMouseDown={handleDropdown} icon={eyeSlash} oleg={'ss'}>Hide</Button>
+
             </nav>
         </header>
     )
