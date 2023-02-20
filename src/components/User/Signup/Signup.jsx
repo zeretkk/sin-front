@@ -7,7 +7,6 @@ import {useSelector} from "react-redux";
 
 function Signup() {
     const [username, setUsername] = useState('')
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [submitPassword, setSubmitPassword] = useState('')
@@ -20,7 +19,7 @@ function Signup() {
         e.preventDefault()
         if(validateForm()){
             setError(false)
-            axios.post('http://localhost:3001/user', {password, username, name, email})
+            axios.post('http://localhost:3001/user', {password, username, email})
                 .then(() =>{
                     navigate('/login')
                 })
@@ -40,9 +39,6 @@ function Signup() {
         let errObj = {}
         if(username.length < 3){
             errObj = {...errObj, username: 'Must be at least 3 characters long'}
-        }
-        if(name.length < 3){
-            errObj = {...errObj, name: 'Must be at least 3 characters long'}
         }
         if(password.length < 6){
             errObj = {...errObj, password: 'Must be at least 6 characters long'}
@@ -71,14 +67,6 @@ function Signup() {
                     <p className={c.text}>Welcome! enter your details and start creating, collecting and selling NFTs.</p>
                     {error && <p className={c.errorLabel}>Something went wrong try again later</p>}
 
-                </div>
-                <div className={c.group}>
-                    <label htmlFor='name' className={c.label}>{validity?.name}</label>
-                    <input type="text" id='name' name='name' placeholder='Name'
-                           className={`${c.input} ${validity?.name?c.errorInput:''}`}
-                           value={name}
-                           onChange={(e)=>setName(e.target.value)}
-                    />
                 </div>
                 <div className={c.group}>
                     <label htmlFor='username' className={c.label}>{validity?.username}</label>

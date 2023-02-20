@@ -23,16 +23,14 @@ function Login() {
                     navigate('/profile')
                 })
                 .catch(err=>{
-                    if(err.code){
-                        console.log(err)
-                        console.log(err.code)
                         switch (err.code){
                             case "ERR_BAD_REQUEST":
                                 setError('Incorrect username or password')
                                 return
+                            default:
+                                setError('Something went wrong')
+                                return;
                         }
-                    }
-                    setError('Something went wrong')
                 })
         }
 
