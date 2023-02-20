@@ -1,8 +1,10 @@
 @import "../../../assets/styles/vars";
 .wrapper{
   max-width: 510px;
+  min-width: 330px;
   border-radius: 20px;
   background: $bg-secondary;
+  flex: 1 1 330px;
 }
 .img{
   width: 100%;
