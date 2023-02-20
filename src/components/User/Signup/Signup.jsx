@@ -19,7 +19,6 @@ function Signup() {
                     navigate('/login')
                 })
                 .catch(err=>{
-                    console.log(err)
                     switch (err?.response?.data?.type){
                         case 'unique':
                             setError('Username is already taken')
