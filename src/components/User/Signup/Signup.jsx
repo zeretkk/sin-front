@@ -14,14 +14,14 @@ function Signup() {
 
     const sendCredentials = (values) => {
             setError(false)
-            axios.post('http://localhost:3001/user', {...values})
+            axios.post('http://localhost:3001/user/register', {...values})
                 .then(() =>{
                     navigate('/login')
                 })
                 .catch(err=>{
                     switch (err?.response?.data?.type){
                         case 'unique':
-                            setError('Username is already taken')
+                            setError('Username/email must be unique')
                             break
                         default:
                             setError('Something went wrong')
@@ -62,7 +62,7 @@ function Signup() {
                 <div className={c.group}>
                     <h2 className={c.heading}>Create Account</h2>
                     <p className={c.text}>Welcome! enter your details and start creating, collecting and selling NFTs.</p>
-                    {error && <p className={c.errorLabel}>Something went wrong try again later</p>}
+                    {error && <p className={c.errorLabel}>{error}</p>}
 
                 </div>
                 <div className={c.group}>
