@@ -1,9 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-
+const dummy = {
+    _id: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    name: null,
+    username: 'example',
+    email: 'example@example.com',
+    bio: '',
+    cover: '',
+    volume: 0,
+    sold: 0,
+    followers: 0,
+    links: [],
+    createdAt: '2023-02-20T13:31:33.876Z',
+    token: ''
+}
 const initialState = {
     value: {
-        data: null,
+        data: dummy,
         error:false,
         loaded:false,
     }
@@ -20,8 +33,8 @@ export const userSlice = createSlice({
             state.value.loaded = true
         },
         logout:(state)=>{
-            state.value.data = null
-            state.value.loaded = true
+            state.value.data = dummy
+            state.value.loaded = false
             localStorage.removeItem('token')
         }
     }

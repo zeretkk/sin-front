@@ -5,11 +5,11 @@ import MainLayout from "./components/Layout/MainLayout";
 import Login from "./components/User/Login/Login";
 import Signup from "./components/User/Signup/Signup";
 import MainPage from "./pages/MainPage";
-import ProfileLayout from "./components/Layout/ProfileLayout";
+import ProfilePage from "./pages/ProfilePage";
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout/>,
+        element: <MainLayout container/>,
         children:[
             {
                 path: '/',
@@ -27,6 +27,12 @@ export const router = createBrowserRouter([
     },
     {
         path:'/profile',
-        element: <ProfileLayout/>,
+        element: <MainLayout/>,
+        children:[
+            {
+                path: '/profile',
+                element: <ProfilePage/>
+            },
+        ]
     },
 ]);

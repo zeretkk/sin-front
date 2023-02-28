@@ -11,7 +11,7 @@ function Login() {
     const [error, setError] = useState('')
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const user = useSelector(state => state.user.value.data)
+    const user = useSelector(state => state.user.value)
     const formik = useFormik({
         initialValues:{
             username: '',
@@ -47,7 +47,7 @@ function Login() {
 
     useEffect(
         ()=>{
-            if(user){
+            if(user.loaded){
                 navigate('/profile')
             }
         }, [user, navigate]

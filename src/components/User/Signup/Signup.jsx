@@ -10,7 +10,7 @@ import image from '../../../assets/images/login.png'
 function Signup() {
     const [error, setError] = useState('')
     const navigate = useNavigate()
-    const user = useSelector(state => state.user.value.data)
+    const user = useSelector(state => state.user.value)
 
     const sendCredentials = (values) => {
             setError(false)
@@ -48,7 +48,7 @@ function Signup() {
     })
     useEffect(
         ()=>{
-            if(user){
+            if(user.loaded){
                 navigate('/profile')
             }
         }, [user, navigate]

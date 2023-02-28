@@ -7,14 +7,27 @@ import  copyIcon from '../../../assets/icons/Copy.svg'
 import  plusIcon from '../../../assets/icons/Plus.svg'
 import {logout} from "../../../slices/userSlice";
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 export default function Profile() {
-    const user = useSelector(state => state.user.value.data)
+    const userState = useSelector(state => state.user.value)
+    const user = userState.data
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogout=()=>{
         dispatch(logout())
         navigate('/')
     }
+    useEffect(()=>{
+        const timer = setTimeout(()=>{
+            if(!userState.loaded && !localStorage.getItem('token')){
+                dispatch(logout())
+                navigate('/')
+                return clearTimeout(timer)
+            }
+            return clearTimeout(timer)
+        }, 10000)
+        return ()=>clearTimeout(timer)
+    }, [userState, dispatch, navigate])
     return (
         <div className={c.wrapper}>
             <div className={c.cover}>
@@ -44,14 +57,14 @@ export default function Profile() {
                     </div>
                     <div>
                         <h5 className={c.label}>links</h5>
-                        {user.links.map((link, i)=>{
+                        {user?.links?.map((link, i)=>{
                             return <a href={link} rel={'noreferrer'} target={'_blank'} key={'userLink-'+i}>иконка</a>
                         })}
                     </div>
                     <p className={c.logout} onClick={handleLogout}>Logout</p>
                 </div>
                 <div className={c.buttons}>
-                    <Button size={'secondary'} filled icon={copyIcon}>{user._id.slice(0, 8)}...</Button>
+                    <Button size={'secondary'} filled icon={copyIcon}>{user?._id?.slice(0, 8)}...</Button>
                     <Button size={'secondary'} icon={plusIcon}>Follow</Button>
                 </div>
             </div>

@@ -9,7 +9,7 @@ import eyeSlash from '../../../assets/icons/EyeSlash.svg'
 import {useState} from "react";
 function Header() {
     const [isVisible, setVisible] = useState(false)
-    const user = useSelector(state => state.user.value.data)
+    const user = useSelector(state => state.user.value)
     const handleDropdown=()=>{
         setVisible(!isVisible)
     }
@@ -22,7 +22,7 @@ function Header() {
             <nav className={`${c.menu} ${isVisible?c.menuVisible:''}`}>
                 <NavLink className={c.link} to={'/'}>Marketplace</NavLink>
                 <NavLink className={c.link} to={'/'}>Rankings</NavLink>
-                {user
+                {user.loaded
                     ?<NavLink className={c.link} to={'/profile'}>
                         <Button size={'secondary'} icon={userIcon}>Profile</Button>
                     </NavLink>
