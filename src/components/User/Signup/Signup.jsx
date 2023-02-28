@@ -1,11 +1,12 @@
 import c from "../userform.module.scss";
 import {Link, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {useSelector} from "react-redux";
 import {useFormik} from "formik";
 import * as Yup from "yup"
 import image from '../../../assets/images/login.png'
+import api from "../../../utils/client";
+import {update} from "../../../slices/userSlice";
 
 function Signup() {
     const [error, setError] = useState('')
@@ -14,9 +15,11 @@ function Signup() {
 
     const sendCredentials = (values) => {
             setError(false)
-            axios.post('http://localhost:3001/user/register', {...values})
-                .then(() =>{
-                    navigate('/login')
+            api.post('http://localhost:3001/user/register', values)
+                .then((r) =>{
+                    update(r.data.user)
+                    localStorage.setItem('token', r.data.user.accessToken)
+                    navigate('/profile')
                 })
                 .catch(err=>{
                     switch (err?.response?.data?.type){

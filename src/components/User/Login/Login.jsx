@@ -1,12 +1,12 @@
 import c from '../userform.module.scss'
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {update} from "../../../slices/userSlice";
 import image from "../../../assets/images/login.png";
 import {useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
 import * as Yup from 'yup'
+import api from "../../../utils/client";
 function Login() {
     const [error, setError] = useState('')
     const dispatch = useDispatch()
@@ -28,10 +28,9 @@ function Login() {
 
     const sendCredentials=(values)=>{
             setError('')
-            axios.post('http://localhost:3001/user/login', values)
+            api.post('/user/login', values)
                 .then(r =>{
-                    dispatch(update(r.data))
-                    navigate('/profile')
+                    console.log(r.data)
                 })
                 .catch(err=>{
                         switch (err.code){
