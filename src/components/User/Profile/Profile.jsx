@@ -5,22 +5,24 @@ import {useDispatch, useSelector} from "react-redux";
 import Button from "../../utility/Button";
 import  copyIcon from '../../../assets/icons/Copy.svg'
 import  plusIcon from '../../../assets/icons/Plus.svg'
-import {logout} from "../../../slices/userSlice";
+import {drop} from "../../../slices/userSlice";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
+import api from "../../../utils/client";
 export default function Profile() {
     const userState = useSelector(state => state.user.value)
     const user = userState.data
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const handleLogout=()=>{
-        dispatch(logout())
+    const handleLogout=async ()=>{
+        await api.get('/user/logout')
+        dispatch(drop())
         navigate('/')
     }
     useEffect(()=>{
         const timer = setTimeout(()=>{
             if(!userState.loaded && !localStorage.getItem('token')){
-                dispatch(logout())
+                dispatch(drop())
                 navigate('/')
                 return clearTimeout(timer)
             }

@@ -1,4 +1,5 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import api from "../utils/client";
 
 const dummy = {
     _id: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
@@ -19,6 +20,7 @@ const initialState = {
         data: dummy,
         error:false,
         loaded:false,
+        loading: false
     }
 }
 export const userSlice = createSlice({
@@ -26,18 +28,49 @@ export const userSlice = createSlice({
     initialState,
     reducers:{
         update:(state, action)=>{
-            if(action?.payload?.token){
-                localStorage.setItem('token', action.payload.token)
+            if(action?.payload?.accessToken){
+                localStorage.setItem('token', action.payload.accessToken)
             }
-            state.value.data = action.payload
+            state.value.data = action.payload.user
             state.value.loaded = true
         },
-        logout:(state)=>{
+        drop:(state)=>{
             state.value.data = dummy
             state.value.loaded = false
             localStorage.removeItem('token')
         }
+    },
+    extraReducers(builder){
+        builder
+            .addCase(checkAuth.pending, (state)=>{
+                state.value.loading = true
+            })
+            .addCase(checkAuth.fulfilled, (state, action)=>{
+                state.value.data = action.payload
+                state.value.loading = false
+                state.value.loaded = true
+                localStorage.setItem('token', action.payload.accessToken)
+            })
+            .addCase(checkAuth.rejected, (state)=>{
+                state.value.data = dummy
+                state.value.loaded = false
+                state.value.loading = false
+                localStorage.removeItem('token')
+            })
     }
 })
-export const {update, logout} = userSlice.actions
+
+
+export const checkAuth = createAsyncThunk('user/checkAuth', async()=>{
+
+    const response = await api.get('/user/refresh')
+    return response.data.user
+}, {
+    condition(arg, {getState}) {
+        const state = getState()
+        const isLoading = state.user.value.loading
+        return !isLoading
+    }
+})
+export const {update, drop} = userSlice.actions
 export default userSlice.reducer

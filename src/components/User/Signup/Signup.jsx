@@ -1,7 +1,7 @@
 import c from "../userform.module.scss";
 import {Link, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useFormik} from "formik";
 import * as Yup from "yup"
 import image from '../../../assets/images/login.png'
@@ -12,12 +12,13 @@ function Signup() {
     const [error, setError] = useState('')
     const navigate = useNavigate()
     const user = useSelector(state => state.user.value)
+    const dispatch = useDispatch()
 
     const sendCredentials = (values) => {
             setError(false)
-            api.post('http://localhost:3001/user/register', values)
+            api.post('/user/register', values)
                 .then((r) =>{
-                    update(r.data.user)
+                    dispatch(update(r.data))
                     localStorage.setItem('token', r.data.user.accessToken)
                     navigate('/profile')
                 })

@@ -31,6 +31,7 @@ function Login() {
             api.post('/user/login', values)
                 .then(r =>{
                     console.log(r.data)
+                    dispatch(update(r.data))
                 })
                 .catch(err=>{
                         switch (err.code){
