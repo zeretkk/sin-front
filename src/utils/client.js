@@ -14,6 +14,7 @@ api.interceptors.request.use(cfg=>{
         err.config._isRetry = true
         try {
             const response = await api.get('/user/refresh')
+            console.log(response)
             localStorage.setItem('token', response.data.accessToken)
             return api.request(err.config)
         }catch (e) {

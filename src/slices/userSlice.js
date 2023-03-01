@@ -46,7 +46,7 @@ export const userSlice = createSlice({
                 state.value.loading = true
             })
             .addCase(checkAuth.fulfilled, (state, action)=>{
-                state.value.data = action.payload
+                state.value.data = action.payload.user
                 state.value.loading = false
                 state.value.loaded = true
                 localStorage.setItem('token', action.payload.accessToken)
@@ -64,7 +64,8 @@ export const userSlice = createSlice({
 export const checkAuth = createAsyncThunk('user/checkAuth', async()=>{
 
     const response = await api.get('/user/refresh')
-    return response.data.user
+    console.log(response)
+    return response.data
 }, {
     condition(arg, {getState}) {
         const state = getState()
