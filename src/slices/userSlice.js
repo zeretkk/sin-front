@@ -64,7 +64,6 @@ export const userSlice = createSlice({
 export const checkAuth = createAsyncThunk('user/checkAuth', async()=>{
 
     const response = await api.get('/user/refresh')
-    console.log(response)
     return response.data
 }, {
     condition(arg, {getState}) {
