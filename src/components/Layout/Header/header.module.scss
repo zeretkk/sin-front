@@ -27,7 +27,7 @@
   font-weight: 600;
 }
 .dropdownButton{
-  display: none;
+  display: none !important;
   background: none;
   border: none;
 }
@@ -38,7 +38,7 @@
 }
 @media screen and (max-width: 830px){
   .dropdownButton{
-    display: flex;
+    display: flex !important;
   }
   .menu{
     opacity: 0;
@@ -54,7 +54,6 @@
   }
   .menuVisible{
     pointer-events: all;
-
     opacity: 1;
     display: flex;
     left: 0;

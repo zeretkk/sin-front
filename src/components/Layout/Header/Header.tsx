@@ -32,7 +32,6 @@ function Header() :JSX.Element {
                     </NavLink>
                 }
                 <Button className={c.dropdownButton} onMouseDown={handleDropdown} icon={eyeSlash}>Hide</Button>
-
             </nav>
         </header>
     )
