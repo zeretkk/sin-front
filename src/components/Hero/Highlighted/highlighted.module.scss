@@ -1,0 +1,31 @@
+@import "../../../assets/styles/vars";
+.wrapper{
+  max-width: 510px;
+  min-width: 330px;
+  border-radius: 20px;
+  background: $bg-secondary;
+  flex: 1 1 330px;
+}
+.img{
+  width: 100%;
+  >img{
+    width: 100%;
+    height: auto;
+  }
+}
+.description{
+  padding: 20px;
+}
+.author{
+  padding-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+.avatar{
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
