@@ -17,7 +17,7 @@ import Swatches from '../assets/icons/category/Swatches.svg'
 import VideoCamera from '../assets/icons/category/VideoCamera.svg'
 import Planet from '../assets/icons/category/Planet.svg'
 
-interface Category {
+export interface Category {
     title: string
     background: string
     icon: string
