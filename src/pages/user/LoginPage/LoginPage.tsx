@@ -1,17 +1,14 @@
 import c from '../userform.module.scss'
 import {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {update} from "../../../slices/userSlice";
+import {useSelector} from "react-redux";
 import image from "../../../assets/images/login.png";
 import {useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
 import * as Yup from 'yup'
-import api from "../../../utils/client";
 import {RootState} from "../../../store";
 import {UserService} from "../../../services/UserService";
 function LoginPage() {
     const [error, setError] = useState('')
-    const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector((state :RootState) => state.user)
     const formik = useFormik({
@@ -23,8 +20,8 @@ function LoginPage() {
             username: Yup.string().required('Must be filled').min(3, 'Must be at least 3 characters long'),
             password: Yup.string().required('Must be filled').min(6, 'Must be at least 6 characters long'),
         }),
-        onSubmit: values => {
-            sendCredentials(values)
+        onSubmit: async values => {
+            await sendCredentials(values)
         }
     })
 

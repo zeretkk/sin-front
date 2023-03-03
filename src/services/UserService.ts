@@ -1,5 +1,3 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query";
-import {User} from "../types/User";
 import api from "../utils/client";
 import {update} from "../slices/userSlice";
 import {store} from "../store";
