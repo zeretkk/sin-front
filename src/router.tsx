@@ -3,9 +3,9 @@ import {
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import MainLayout from "./components/Layout/MainLayout";
-// import Login from "./components/User/Login/Login";
-// import Signup from "./components/User/Signup/Signup";
-// import ProfilePage from "./pages/ProfilePage";
+import LoginPage from "./pages/user/LoginPage/LoginPage";
+import SignupPage from "./pages/user/SignupPage/SignupPage";
+import ProfilePage from "./pages/user/ProfilePage/ProfilePage";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -15,24 +15,24 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <MainPage/>
             },
-            // {
-            //     path:'login',
-            //     element: <Login/>,
-            // },
-            // {
-            //     path:'signup',
-            //     element: <Signup/>
-            // },
+            {
+                path:'login',
+                element: <LoginPage/>,
+            },
+            {
+                path:'signup',
+                element: <SignupPage/>
+            },
         ],
     },
-    // {
-    //     path:'/profile',
-    //     element: <MainLayout/>,
-    //     children:[
-    //         {
-    //             path: '/profile',
-    //             element: <ProfilePage/>
-    //         },
-    //     ]
-    // },
+    {
+        path:'/profile',
+        element: <MainLayout/>,
+        children:[
+            {
+                path: '/profile',
+                element: <ProfilePage/>
+            },
+        ]
+    },
 ]);

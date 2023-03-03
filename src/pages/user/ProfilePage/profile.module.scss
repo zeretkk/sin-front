@@ -1,0 +1,60 @@
+@import "../../../assets/styles/vars";
+.wrapper{
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+
+}
+.cover{
+  width: 100%;
+  >img{
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.info{
+  position: relative;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  >img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 20px;
+    position: absolute;
+    top: -60px;
+    left: 60px;
+  }
+}
+.text{
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+.statistics{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.item{
+  flex: 0 0 auto;
+}
+.label{
+  color: $caption;
+  padding-bottom: 10px;
+}
+.buttons{
+  display: flex;
+  gap: 20px
+}
+.logout{
+  color: $danger;
+  font-weight: bold;
+  cursor: pointer;
+}

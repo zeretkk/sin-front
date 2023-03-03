@@ -1,0 +1,54 @@
+@import "../../assets/styles/vars";
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+.heading{
+  padding-bottom: 20px;
+}
+.errorLabel{
+  padding-top: 0.2em;
+  color: $danger;
+  display: block;
+  height: 1em;
+  text-align: center;
+}
+.group{
+  display: flex;
+  flex-direction: column;
+}
+.label{
+  color: $danger;
+  display: block;
+  height: 1em;
+  padding-left: 20px;
+}
+.input{
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid #858584;
+  outline: none;
+}
+.errorInput{
+  border-color: $danger;
+}
+.button{
+  padding: 10px 20px;
+  background: $action;
+  border-radius: 20px;
+  border: none;
+  color: $text;
+  font-weight: bold;
+}
+.link{
+  text-decoration: underline;
+  color: $action;
+}
