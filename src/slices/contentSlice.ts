@@ -16,12 +16,9 @@ import PaintBrush from '../assets/icons/category/PaintBrush.svg'
 import Swatches from '../assets/icons/category/Swatches.svg'
 import VideoCamera from '../assets/icons/category/VideoCamera.svg'
 import Planet from '../assets/icons/category/Planet.svg'
+import {Category} from "../types/Category";
 
-export interface Category {
-    title: string
-    background: string
-    icon: string
-}
+
 interface ContentSlice {
     categories : Category[]
     items : any[]

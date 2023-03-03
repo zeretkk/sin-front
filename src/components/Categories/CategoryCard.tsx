@@ -1,6 +1,6 @@
 import c from './categories.module.scss'
 import {HTMLAttributes} from "react";
-import {Category} from "../../slices/contentSlice";
+import {Category} from "../../types/Category";
 
 interface CategoryCardProps extends HTMLAttributes<any>{
     category: Category
