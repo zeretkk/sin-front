@@ -1,4 +1,4 @@
-export declare interface IUser{
+export declare interface User {
     _id: string,
     username: string,
     email: string,

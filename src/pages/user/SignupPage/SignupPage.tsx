@@ -8,6 +8,7 @@ import image from '../../../assets/images/login.png'
 import api from "../../../utils/client";
 import {update} from "../../../slices/userSlice";
 import {RootState} from "../../../store";
+import {UserService} from "../../../services/UserService";
 
 export default function SignupPage(): JSX.Element {
     const [error, setError] = useState('')
@@ -15,27 +16,11 @@ export default function SignupPage(): JSX.Element {
     const user = useSelector((state :RootState) => state.user)
     const dispatch = useDispatch()
 
-    const sendCredentials = (values :typeof formik.values) => {
+    const sendCredentials = async (values :typeof formik.values) => {
         setError('')
-        api.post('/user/register', values)
-            .then((r) =>{
-                console.log(r)
-                dispatch(update(r.data))
-                navigate('/profile')
-            })
-            .catch(err=>{
-                switch (err?.response.status){
-                    case 400:
-                        if(err.response.data.errors.includes('unique')){
-                            setError('Username/email must be unique')
-                            break
-                        }
-                        setError('Bad input')
-                        break
-                    default:
-                        setError('Something went wrong')
-                }
-            })
+        const error = await UserService.register(values)
+        setError(error)
+
     }
 
     const formik = useFormik({

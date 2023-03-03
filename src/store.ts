@@ -5,7 +5,7 @@ import contentReducer from './slices/contentSlice'
 export const store = configureStore({
   reducer: {
     user:userReducer,
-    content:contentReducer
+    content:contentReducer,
   },
 });
 

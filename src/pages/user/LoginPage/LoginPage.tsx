@@ -8,6 +8,7 @@ import {useFormik} from "formik";
 import * as Yup from 'yup'
 import api from "../../../utils/client";
 import {RootState} from "../../../store";
+import {UserService} from "../../../services/UserService";
 function LoginPage() {
     const [error, setError] = useState('')
     const dispatch = useDispatch()
@@ -27,23 +28,10 @@ function LoginPage() {
         }
     })
 
-    const sendCredentials=(values :typeof formik.values)=>{
+    const sendCredentials= async (values :typeof formik.values)=>{
         setError('')
-        api.post('/user/login', values)
-            .then(r =>{
-                console.log(r.data)
-                dispatch(update(r.data))
-            })
-            .catch(err=>{
-                switch (err.code){
-                    case "ERR_BAD_REQUEST":
-                        setError('Incorrect username or password')
-                        return
-                    default:
-                        setError('Something went wrong')
-                        return;
-                }
-            })
+        const error = await UserService.login(values)
+        setError(error)
     }
 
     useEffect(

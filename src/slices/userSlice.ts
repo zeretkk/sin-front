@@ -1,9 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import api from "../utils/client";
-import {IUser} from "../types/User";
+import {User} from "../types/User";
 import {RootState} from "../store";
+import {UserService} from "../services/UserService";
 
-const dummy :IUser = {
+const dummy :User = {
     _id: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     username: 'example',
     email: 'example@example.com',
@@ -16,7 +16,7 @@ const dummy :IUser = {
     createdAt: '2023-02-20T13:31:33.876Z',
 }
 interface userState {
-    data: IUser
+    data: User
     error: boolean
     loaded: boolean
     loading:boolean
@@ -67,9 +67,7 @@ export const userSlice = createSlice({
 
 
 export const checkAuth = createAsyncThunk('user/checkAuth', async()=>{
-
-    const response = await api.get('/user/refresh')
-    return response.data
+    return UserService.refresh()
 }, {
     condition(arg, {getState}) {
         const state = getState() as RootState

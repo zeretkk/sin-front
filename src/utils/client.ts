@@ -1,4 +1,5 @@
 import axios from "axios";
+import {UserService} from "../services/UserService";
 export const API_URL = 'http://localhost:3001'
 
 
@@ -15,9 +16,8 @@ api.interceptors.request.use(cfg=>{
     if(err.response.status === 401 && err.config && !err.config._isRetry){
         err.config._isRetry = true
         try {
-            const response = await api.get('/user/refresh')
-            console.log(response)
-            localStorage.setItem('token', response.data.accessToken)
+            const response = await UserService.refresh()
+            localStorage.setItem('token', response.accessToken)
             return api.request(err.config)
         }catch (e) {
             localStorage.removeItem('token')
