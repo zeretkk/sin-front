@@ -8,16 +8,15 @@ import  plusIcon from '../../../assets/icons/Plus.svg'
 import {drop} from "../../../slices/userSlice";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
-import api from "../../../utils/client";
 import {RootState} from "../../../store";
+import {UserService} from "../../../services/UserService";
 export default function ProfilePage() {
     const userState = useSelector((state :RootState) => state.user)
     const user = userState.data
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogout=async ()=>{
-        await api.get('/user/logout')
-        dispatch(drop())
+        await UserService.logout()
         navigate('/')
     }
     useEffect(()=>{

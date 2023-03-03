@@ -1,5 +1,5 @@
 import api from "../utils/client";
-import {update} from "../slices/userSlice";
+import {drop, update} from "../slices/userSlice";
 import {store} from "../store";
 import {AuthResponse, UserCredentials} from "../types/Authorization";
 
@@ -40,5 +40,10 @@ export class UserService{
     static async refresh() : Promise<AuthResponse>{
         const response = await api.get<AuthResponse>('/user/refresh')
         return response.data
+    }
+    static async logout(){
+        await api.get('/user/logout')
+        store.dispatch(drop())
+
     }
 }
