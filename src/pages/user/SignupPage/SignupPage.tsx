@@ -21,7 +21,6 @@ export default function SignupPage(): JSX.Element {
             .then((r) =>{
                 console.log(r)
                 dispatch(update(r.data))
-                localStorage.setItem('token', r.data.user.accessToken)
                 navigate('/profile')
             })
             .catch(err=>{
