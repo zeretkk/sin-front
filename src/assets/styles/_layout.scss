@@ -1,0 +1,59 @@
+@import "vars";
+body{
+  color: $text;
+  background: $bg;
+  background-size: cover;
+  font-size: 16px ;
+}
+a{
+  color: $text;
+  text-decoration: none;
+}
+h1{font-size: 67px; font-weight: 600}
+h2{font-size: 51px; font-weight: 600}
+h3{font-size: 38px; font-weight: 600}
+h4{font-size: 28px; font-weight: 600}
+h5{font-size: 22px; font-weight: 600}
+
+.container{
+  max-width: 1050px;
+  margin: 0 auto;
+}
+.btn{
+  padding: 0 30px;
+  height: 46px;
+  border: 2px solid $action;
+  color: $text;
+  background: $bg;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-primary{
+  height: 72px;
+  font-size: 22px;
+  padding: 30px;
+
+}
+.btn-secondary{
+  height: 60px;
+  padding: 30px;
+
+}
+.btn-filled{
+  background: $action;
+}
+.btn__icon{
+  width: 20px;
+  height: 20px;
+  >img{
+    width: 100%;
+    height: auto;
+  }
+}

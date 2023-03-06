@@ -1,0 +1,23 @@
+@import "../../assets/styles/vars";
+.wrapper{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.info{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+  p{
+    font-size: 1.2em;
+  }
+}
+.errorText{
+  color: $caption;
+}
