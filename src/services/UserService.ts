@@ -1,4 +1,4 @@
-import api from "../utils/client";
+import api from "./client";
 import {drop, update} from "../slices/userSlice";
 import {store} from "../store";
 import {AuthResponse, UserCredentials} from "../types/Authorization";

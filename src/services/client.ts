@@ -1,5 +1,5 @@
 import axios from "axios";
-import {UserService} from "../services/UserService";
+import {UserService} from "./UserService";
 export const API_URL = 'http://localhost:3001'
 
 
