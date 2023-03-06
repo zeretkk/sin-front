@@ -1,5 +1,5 @@
 import api from "./client";
-import {drop, update} from "../slices/userSlice";
+import {remove, update} from "../slices/userSlice";
 import {store} from "../store";
 import {AuthResponse, UserCredentials} from "../types/Authorization";
 
@@ -22,7 +22,6 @@ export class UserService{
     static async register(values: UserCredentials) : Promise<string>{
         try {
             const response= await api.post<AuthResponse>('/user/register', values)
-            console.log(response)
             store.dispatch(update(response.data))
             return ''
         }catch (err: any) {
@@ -43,7 +42,7 @@ export class UserService{
     }
     static async logout(){
         await api.get('/user/logout')
-        store.dispatch(drop())
+        store.dispatch(remove())
 
     }
 }

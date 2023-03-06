@@ -39,7 +39,7 @@ export const userSlice = createSlice({
             state.data = action.payload.user
             state.loaded = true
         },
-        drop:(state)=>{
+        remove:(state)=>{
             state.data = dummy
             state.loaded = false
             localStorage.removeItem('token')
@@ -75,5 +75,5 @@ export const checkAuth = createAsyncThunk('user/checkAuth', async()=>{
         return !isLoading
     }
 })
-export const {update, drop} = userSlice.actions
+export const {update, remove} = userSlice.actions
 export default userSlice.reducer

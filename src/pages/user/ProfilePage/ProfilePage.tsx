@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Button from "../../../components/utility/Button";
 import  copyIcon from '../../../assets/icons/Copy.svg'
 import  plusIcon from '../../../assets/icons/Plus.svg'
-import {drop} from "../../../slices/userSlice";
+import {remove} from "../../../slices/userSlice";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 import {RootState} from "../../../store";
@@ -22,7 +22,7 @@ export default function ProfilePage() {
     useEffect(()=>{
         const timer = setTimeout(()=>{
             if(!userState.loaded || !localStorage.getItem('token')){
-                dispatch(drop())
+                dispatch(remove())
                 navigate('/')
                 return clearTimeout(timer)
             }

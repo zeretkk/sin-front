@@ -3,8 +3,6 @@ import c from './errorpage.module.scss'
 import Button from "../../components/utility/Button";
 export default function ErrorPage(): JSX.Element {
     const error = useRouteError() as any
-    console.log(typeof error)
-    // @ts-ignore
     return (
         <div className={c.wrapper}>
             <div className={c.info}>
