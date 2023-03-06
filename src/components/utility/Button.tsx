@@ -1,5 +1,5 @@
 import launch from '../../assets/icons/RocketLaunch.svg'
-import React, {HTMLAttributes} from "react";
+import React, {FC, HTMLAttributes} from "react";
 
 interface ButtonProps extends HTMLAttributes<any>{
     filled?:boolean
@@ -8,7 +8,7 @@ interface ButtonProps extends HTMLAttributes<any>{
     className?:string
     icon?:string
 }
-export default function Button({filled, size, children, className, icon, ...props}: ButtonProps) {
+const Button: FC<ButtonProps> =({filled, size, children, className, icon, ...props})=>{
     const classes = className ?? ''
     const sizeClass = size?'btn-'+size:''
     const iconPath = icon ?? launch
@@ -23,3 +23,4 @@ export default function Button({filled, size, children, className, icon, ...prop
         </button>
     )
 }
+export default Button

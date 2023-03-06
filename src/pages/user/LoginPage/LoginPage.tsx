@@ -1,5 +1,5 @@
 import c from '../userform.module.scss'
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import image from "../../../assets/images/login.png";
 import {useNavigate} from "react-router-dom";
@@ -7,7 +7,8 @@ import {useFormik} from "formik";
 import * as Yup from 'yup'
 import {RootState} from "../../../store";
 import {UserService} from "../../../services/UserService";
-function LoginPage() {
+
+const LoginPage: FC =()=> {
     const [error, setError] = useState('')
     const navigate = useNavigate()
     const user = useSelector((state :RootState) => state.user)

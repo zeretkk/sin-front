@@ -2,8 +2,10 @@ import Highlighted from "./Highlighted/Highlighted";
 import {NavLink} from "react-router-dom";
 import Button from "../utility/Button";
 import c from './hero.module.scss'
+import {FC} from "react";
 
-export default function Hero() {
+
+const Hero: FC =()=>{
     return (
         <section className={c.wrapper}>
             <div className={c.text}>
@@ -33,3 +35,4 @@ export default function Hero() {
         </section>
     )
 }
+export default Hero

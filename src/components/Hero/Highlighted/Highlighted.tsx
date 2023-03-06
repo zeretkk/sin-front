@@ -1,7 +1,9 @@
 import image from '../../../assets/images/Image Placeholder1x.png'
 import avatar from '../../../assets/images/Avatars/Animakid.png'
 import c from './highlighted.module.scss'
-export default function Highlighted() {
+import {FC} from "react";
+
+const Highlighted: FC =()=>{
     return (
         <div className={c.wrapper}>
             <div className={c.img}>
@@ -17,3 +19,4 @@ export default function Highlighted() {
         </div>
     )
 }
+export default Highlighted

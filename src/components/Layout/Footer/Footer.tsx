@@ -6,7 +6,9 @@ import instagram from '../../../assets/icons/InstagramLogo.svg'
 import {Link} from "react-router-dom";
 import Button from "../../utility/Button";
 import c from './footer.module.scss'
-export default function Footer() :JSX.Element {
+import {FC} from "react";
+
+const Footer: FC =()=>{
     return (
         <footer className={c.wrapper}>
             <div className={c.container + ' container'}>
@@ -52,3 +54,5 @@ export default function Footer() :JSX.Element {
         </footer>
     )
 }
+
+export default Footer

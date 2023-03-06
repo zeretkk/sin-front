@@ -8,7 +8,7 @@ import image from '../../../assets/images/login.png'
 import {RootState} from "../../../store";
 import {UserService} from "../../../services/UserService";
 
-export default function SignupPage(): JSX.Element {
+export default function SignupPage() {
     const [error, setError] = useState('')
     const navigate = useNavigate()
     const user = useSelector((state :RootState) => state.user)

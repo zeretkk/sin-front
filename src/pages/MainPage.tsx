@@ -1,7 +1,8 @@
 import Hero from "../components/Hero/Hero";
 import Categories from "../components/Categories/Categories";
+import {FC} from "react";
 
-export default function MainPage() {
+const MainPage: FC =()=>{
     return (
         <>
             <Hero/>
@@ -9,3 +10,4 @@ export default function MainPage() {
         </>
     )
 }
+export default MainPage

@@ -7,10 +7,11 @@ import  copyIcon from '../../../assets/icons/Copy.svg'
 import  plusIcon from '../../../assets/icons/Plus.svg'
 import {remove} from "../../../slices/userSlice";
 import {useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import {FC, useEffect} from "react";
 import {RootState} from "../../../store";
 import {UserService} from "../../../services/UserService";
-export default function ProfilePage() {
+
+const ProfilePage: FC =()=>{
     const userState = useSelector((state :RootState) => state.user)
     const user = userState.data
     const dispatch = useDispatch()
@@ -74,3 +75,5 @@ export default function ProfilePage() {
         </div>
     )
 }
+
+export default ProfilePage

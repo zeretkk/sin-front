@@ -1,7 +1,9 @@
 import {NavLink, useRouteError} from 'react-router-dom'
 import c from './errorpage.module.scss'
 import Button from "../../components/utility/Button";
-export default function ErrorPage(): JSX.Element {
+import {FC} from "react";
+
+const ErrorPage: FC =()=>{
     const error = useRouteError() as any
     return (
         <div className={c.wrapper}>
@@ -19,3 +21,4 @@ export default function ErrorPage(): JSX.Element {
         </div>
     )
 }
+export default ErrorPage

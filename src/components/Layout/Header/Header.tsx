@@ -6,9 +6,10 @@ import userIcon from '../../../assets/icons/User.svg'
 import c from './header.module.scss'
 import dropdown from '../../../assets/icons/List.svg'
 import eyeSlash from '../../../assets/icons/EyeSlash.svg'
-import {useState} from "react";
+import {FC, useState} from "react";
 import {RootState} from "../../../store";
-function Header() :JSX.Element {
+
+const Header: FC =()=>{
     const [isVisible, setVisible] = useState(false)
     const user = useSelector((state :RootState) => state.user)
     const handleDropdown=()=>{
@@ -36,5 +37,6 @@ function Header() :JSX.Element {
         </header>
     )
 }
+
 
 export default Header

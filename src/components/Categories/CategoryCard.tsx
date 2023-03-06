@@ -1,11 +1,11 @@
 import c from './categories.module.scss'
-import {HTMLAttributes} from "react";
+import {FC, HTMLAttributes} from "react";
 import {Category} from "../../types/Category";
 
 interface CategoryCardProps extends HTMLAttributes<any>{
     category: Category
 }
-export default function CategoryCard({category, ...props} :CategoryCardProps) {
+const CategoryCard: FC<CategoryCardProps> =({category, ...props})=>{
     return (
         <div className={c.card} {...props}>
             <div className={c.cardImg}>
@@ -20,3 +20,4 @@ export default function CategoryCard({category, ...props} :CategoryCardProps) {
         </div>
     )
 }
+export default CategoryCard
